@@ -11,6 +11,8 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
+import os
+from chromadb import PersistentClient
 
 load_dotenv()
 
@@ -29,7 +31,21 @@ def load_and_split_documents(txt_path, chunk_size=1000):
 
 def setup_vectorstore_and_retriever(docs, embedding_model, k=10):
     """Setup the vectorstore and retriever for document similarity search."""
-    vectorstore = Chroma.from_documents(documents=docs, embedding=GoogleGenerativeAIEmbeddings(model=embedding_model))
+    # Create persistent directory
+    persist_directory = "chroma_db"
+    os.makedirs(persist_directory, exist_ok=True)
+    
+    # Initialize persistent client
+    client = PersistentClient(path=persist_directory)
+    
+    # Create vectorstore with persistent client
+    vectorstore = Chroma.from_documents(
+        documents=docs,
+        embedding=GoogleGenerativeAIEmbeddings(model=embedding_model),
+        client=client,
+        collection_name="ed_ai_docs"
+    )
+    
     retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": k})
     return retriever
 
@@ -65,7 +81,7 @@ def handle_query(query, retriever, llm, system_prompt):
 
 def chat():
     initialize_session_state()
-    docs = load_and_split_documents(r"EXP\Learn.txt") 
+    docs = load_and_split_documents(r"EXP/Learn.txt") 
     retriever = setup_vectorstore_and_retriever(docs, embedding_model="models/embedding-001")
 
     llm = initialize_llm(model_name="gemini-1.5-flash")

@@ -7,7 +7,7 @@ import google.generativeai as genai
 load_dotenv()
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-Learn_list_file_path = r"dynamic files\Main_pages\Learn.json"
+Learn_list_file_path = r"dynamic files/Main_pages/Learn.json"
 
 def learn_recommendation():
     try:
@@ -61,7 +61,7 @@ def learn_recommendation():
 def write_recommendation_data_to_Learn_file():
     result_of_learn_recommendation = str(learn_recommendation())
     result_of_learn_recommendation = result_of_learn_recommendation.replace("'", '"')
-    learn_recommendation_file_path = r'dynamic files\Main_pages\Recommendations\Learn_Recommendation.json'
+    learn_recommendation_file_path = r'dynamic files/Main_pages/Recommendations/Learn_Recommendation.json'
 
     try:
         with open(learn_recommendation_file_path, 'w') as file:

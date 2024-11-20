@@ -15,7 +15,7 @@ def get_mime_type(filename):
     return mime_type or 'application/octet-stream'
 
 def show_details(selected_image):
-    Redirecting_json_file_path = f"Static_Files\\Learn_Page\\{selected_image}\\{selected_image}.json"
+    Redirecting_json_file_path = f"Static_Files/Learn_Page/{selected_image}/{selected_image}.json"
 
     with open(Redirecting_json_file_path, 'r') as f:
         data = json.load(f)
@@ -28,9 +28,9 @@ def show_details(selected_image):
     return
 
 def Learn_page():
-    directory_Featured = r"Static_Files\Learn_Page\Featured"
-    directory_All_Courses = r"Static_Files\Learn_Page\All_Courses"
-    directory_Recommendation = r"dynamic files\Main_pages\Recommendations\Learn_page_recommendation"
+    directory_Featured = r"Static_Files/Learn_Page/Featured"
+    directory_All_Courses = r"Static_Files/Learn_Page/All_Courses"
+    directory_Recommendation = r"dynamic files/Main_pages/Recommendations/Learn_page_recommendation"
 
     query_params = st.query_params
     if "selected_image" in query_params:

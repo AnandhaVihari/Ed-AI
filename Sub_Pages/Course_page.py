@@ -124,7 +124,7 @@ def course_page(Course_list, MCQ_list, Tittle, Course_ID):
         else:
             st.success("You have Completed the Course!")
             st.balloons()
-            file_path = r'dynamic files\Main_pages\Learn.json'
+            file_path = r'dynamic files/Main_pages/Learn.json'
             completed_status = True
             print(update_problem_status(file_path, Course_ID, completed_status))
             write_recommendation_data_to_Learn_file()

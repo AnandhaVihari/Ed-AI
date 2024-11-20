@@ -16,7 +16,7 @@ def get_mime_type(filename):
     return mime_type or 'application/octet-stream'
 
 def show_details(selected_image):
-    Tests_Question_json_file_path = r"Static_Files\Practice_Page\Redirecting_MCQ_test.json"
+    Tests_Question_json_file_path = r"Static_Files/Practice_Page/Redirecting_MCQ_test.json"
     with open(Tests_Question_json_file_path, 'r') as file:
         data = json.load(file)
     
@@ -71,9 +71,9 @@ def Practice_MCQ_page():
 
     with st.sidebar:
         Help_Chat()
-    directory_Featured = r"Static_Files\Practice_Page\Featured"
-    directory_All_Courses = r"Static_Files\Practice_Page\All_Courses"
-    directory_Recommendation = r"dynamic files\Main_pages\Recommendations\Practice_MCQ_page_recommendation"
+    directory_Featured = r"Static_Files/Practice_Page/Featured"
+    directory_All_Courses = r"Static_Files/Practice_Page/All_Courses"
+    directory_Recommendation = r"dynamic files/Main_pages/Recommendations/Practice_MCQ_page_recommendation"
 
     query_params = st.query_params
     if "selected_image" in query_params:

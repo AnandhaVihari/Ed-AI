@@ -60,12 +60,12 @@ def load_image_as_base64(image_path):
     return f"data:image/png;base64,{base64_string}"
 
 def navbar():
-    memory_of_navbar = r'EXP\memory.txt'
-    memory_of_selected_round = r'EXP\memory_1.txt'
-    memory_of_select_button = r'EXP\memory select problem.txt'
+    memory_of_navbar = r'EXP/memory.txt'
+    memory_of_selected_round = r'EXP/memory_1.txt'
+    memory_of_select_button = r'EXP/memory select problem.txt'
 
-    image_path = r"Static_Files\NavBar\Ed AI logo.png"
-    profile_pic_url = r"Static_Files\NavBar\profile pic.png"
+    image_path = r"Static_Files/NavBar/Ed AI logo.png"
+    profile_pic_url = r"Static_Files/NavBar/profile pic.png"
     encoded_image = load_image_as_base64(image_path)
     link_url = "https://github.com/pvchaitanya8?tab=repositories"
 
@@ -73,19 +73,19 @@ def navbar():
 
     # SINGLE_Execution
     if 'memory_cleared' not in st.session_state:
-        learn_Image_list_json_path = r"dynamic files\Main_pages\Recommendations\Learn_Recommendation.json"
-        learn_Images_path = r"Static_Files\Learn_Page\All_Courses"
-        learn_destination_path = r"dynamic files\Main_pages\Recommendations\Learn_page_recommendation"
+        learn_Image_list_json_path = r"dynamic files/Main_pages/Recommendations/Learn_Recommendation.json"
+        learn_Images_path = r"Static_Files/Learn_Page/All_Courses"
+        learn_destination_path = r"dynamic files/Main_pages/Recommendations/Learn_page_recommendation"
         copy_imagesto_folder_from_list(learn_Image_list_json_path, learn_Images_path, learn_destination_path)
 
-        Practice_MCQ_page_Image_list_json_path = r"dynamic files\Main_pages\Recommendations\Practice_MCQ_Recommendation.json"
-        Practice_MCQ_page_Images_path = r"Static_Files\Practice_Page\All_Courses"
-        Practice_MCQ_page_destination_path = r"dynamic files\Main_pages\Recommendations\Practice_MCQ_page_recommendation"
+        Practice_MCQ_page_Image_list_json_path = r"dynamic files/Main_pages/Recommendations/Practice_MCQ_Recommendation.json"
+        Practice_MCQ_page_Images_path = r"Static_Files/Practice_Page/All_Courses"
+        Practice_MCQ_page_destination_path = r"dynamic files/Main_pages/Recommendations/Practice_MCQ_page_recommendation"
         copy_imagesto_folder_from_list(Practice_MCQ_page_Image_list_json_path, Practice_MCQ_page_Images_path, Practice_MCQ_page_destination_path)
 
-        Practice_Coding_page_Image_list_json_path = r"dynamic files\Main_pages\Recommendations\Practice_Coding_Problems_Recommendation.json"
-        Practice_Coding_page_Images_path = r"Static_Files\Practice_Page_Problems\All_Coding_Problems"
-        Practice_Coding_page_destination_path = r"dynamic files\Main_pages\Recommendations\Practice_Coding_page_recommendation"
+        Practice_Coding_page_Image_list_json_path = r"dynamic files/Main_pages/Recommendations/Practice_Coding_Problems_Recommendation.json"
+        Practice_Coding_page_Images_path = r"Static_Files/Practice_Page_Problems/All_Coding_Problems"
+        Practice_Coding_page_destination_path = r"dynamic files/Main_pages/Recommendations/Practice_Coding_page_recommendation"
         copy_imagesto_folder_from_list(Practice_Coding_page_Image_list_json_path, Practice_Coding_page_Images_path, Practice_Coding_page_destination_path)
 
 

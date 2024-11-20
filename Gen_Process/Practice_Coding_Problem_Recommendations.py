@@ -7,7 +7,7 @@ import google.generativeai as genai
 load_dotenv()
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-Coding_Problems_list_file_path = r"dynamic files\Main_pages\Practice_Coding_Problems.json"
+Coding_Problems_list_file_path = r"dynamic files/Main_pages/Practice_Coding_Problems.json"
 
 def Practice_Coding_Problem_recommendation():
     try:
@@ -80,7 +80,7 @@ def Practice_Coding_Problem_recommendation():
 def write_recommendation_data_to_Practice_Coding_Problem():
     result_of_Coding_Problems_recommendation = str(Practice_Coding_Problem_recommendation())
     result_of_Coding_Problems_recommendation = result_of_Coding_Problems_recommendation.replace("'", '"')
-    Coding_Problems_recommendation_file_path = r'dynamic files\Main_pages\Recommendations\Practice_Coding_Problems_Recommendation.json'
+    Coding_Problems_recommendation_file_path = r'dynamic files/Main_pages/Recommendations/Practice_Coding_Problems_Recommendation.json'
 
     try:
         with open(Coding_Problems_recommendation_file_path, 'w') as file:

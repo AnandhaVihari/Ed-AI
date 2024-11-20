@@ -7,7 +7,7 @@ import google.generativeai as genai
 load_dotenv()
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-MCQs_list_file_path = r"dynamic files\Main_pages\Practice_MCQ.json"
+MCQs_list_file_path = r"dynamic files/Main_pages/Practice_MCQ.json"
 
 def Practice_MCQs_recommendation():
     try:

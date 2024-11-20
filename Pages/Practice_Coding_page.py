@@ -7,7 +7,7 @@ import pandas as pd
 from urllib.parse import urlencode
 from Sub_Pages.Coding_Problems_Page import Coding_Problems_page
 
-memory_of_select_button = r'EXP\memory select problem.txt'
+memory_of_select_button = r'EXP/memory select problem.txt'
 
 def clear_and_rewrite_memory_of_navbar(file_path, new_content):
     with open(file_path, 'w') as file:
@@ -22,7 +22,7 @@ def get_mime_type(filename):
     return mime_type or 'application/octet-stream'
 
 def show_details(selected_image):
-    Redirecting_json_file_path = r"Static_Files\Practice_Page_Problems\Coding_Problem.json"
+    Redirecting_json_file_path = r"Static_Files/Practice_Page_Problems/Coding_Problem.json"
 
     with open(Redirecting_json_file_path, 'r') as f:
         data = json.load(f)
@@ -39,9 +39,9 @@ def Practice_Coding_page():
     if 'selected_problem' not in st.session_state:
         st.session_state.selected_problem = None
     
-    directory_Featured = r"Static_Files\Practice_Page_Problems\Featured"
-    directory_Recommendation = r"Static_Files\Practice_Page_Problems\All_Coding_Problems"
-    directory_Recommendation = r"dynamic files\Main_pages\Recommendations\Practice_Coding_page_recommendation"
+    directory_Featured = r"Static_Files/Practice_Page_Problems/Featured"
+    directory_Recommendation = r"Static_Files/Practice_Page_Problems/All_Coding_Problems"
+    directory_Recommendation = r"dynamic files/Main_pages/Recommendations/Practice_Coding_page_recommendation"
     
     if not st.session_state.selected_problem:
         query_params = st.query_params
@@ -220,7 +220,7 @@ def Practice_Coding_page():
             st.session_state.selected_problem = None
             clear_and_rewrite_memory_of_navbar(memory_of_select_button, str(st.session_state.selected_problem))
 
-        with open(r'Static_Files\Practice_Page_Problems\Coding_Problem.json') as f:
+        with open(r'Static_Files/Practice_Page_Problems/Coding_Problem.json') as f:
             json_data = json.load(f)
 
         problems_data = {
@@ -297,7 +297,7 @@ def Practice_Coding_page():
         Coding_Q_ID = selected["ID"]
 
         try:
-            with open(r'Static_Files\Practice_Page_Problems\Coding_Problem.json', 'r') as file:
+            with open(r'Static_Files/Practice_Page_Problems/Coding_Problem.json', 'r') as file:
                 data = json.load(file)
 
             problem_title = data["problems"][Coding_Q_ID]["title"]
